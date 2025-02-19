@@ -1,0 +1,78 @@
+:root {
+    --primary: #ea580c;
+    --secondary: #c2410c;
+    --accent: #f97316;
+    --bg-tint: #fff7ed;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.nav-link {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--accent);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.image-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.image-overlay {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image-card:hover .image-overlay {
+    opacity: 1;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+.ulica{
+    width: 10px;
+    height: 10px;
+}
+
+/* Custom Gradients */
+.bg-gradient-overlay {
+    background: linear-gradient(to bottom, rgba(194, 65, 12, 0.8), rgba(249, 115, 22, 0.4));
+}
+
+/* Enhanced Card Styles */
+.card-shadow {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
