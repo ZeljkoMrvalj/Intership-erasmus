@@ -1,78 +1,115 @@
-:root {
-    --primary: #ea580c;
-    --secondary: #c2410c;
-    --accent: #f97316;
-    --bg-tint: #fff7ed;
-}
 
-body {
-    font-family: 'Poppins', sans-serif;
-}
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;600&display=swap');
+        
+        :root {
+            --peach-light: #FFCDB2;
+            --peach: #FFB4A2;
+            --rose: #E5989B;
+            --mauve: #B5828C;
+            --gold: #F9CB43;
+        }
 
-.nav-link {
-    position: relative;
-    transition: color 0.3s ease;
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-.nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -2px;
-    left: 0;
-    background-color: var(--accent);
-    transition: width 0.3s ease;
-}
 
-.nav-link:hover::after {
-    width: 100%;
-}
+        .photo{
+            width:700px ;
+            height: 400px;
+        }
 
-.section {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-}
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            color: #2C3E50;
+            background: linear-gradient(45deg, rgba(206, 124, 79, 0.1) 25%, transparent 25%),
+                        linear-gradient(-45deg, rgba(143, 75, 38, 0.1) 25%, transparent 25%),
+                        linear-gradient(45deg, transparent 75%, rgba(255, 205, 178, 0.1) 75%),
+                        linear-gradient(-45deg, transparent 75%, rgba(255, 205, 178, 0.1) 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+        }
 
-.section.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
 
-.image-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+        .section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
 
-.image-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-}
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-.image-overlay {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7));
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
+        .content-box {
+            border-radius: 8px;
+            padding: 2rem;
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
 
-.image-card:hover .image-overlay {
-    opacity: 1;
-}
+        .content-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+            transform-origin: left;
+        }
 
-html {
-    scroll-behavior: smooth;
-}
-.ulica{
-    width: 10px;
-    height: 10px;
-}
+        .content-box:hover::before {
+            transform: scaleX(1);
+        }
 
-/* Custom Gradients */
-.bg-gradient-overlay {
-    background: linear-gradient(to bottom, rgba(194, 65, 12, 0.8), rgba(249, 115, 22, 0.4));
-}
+        .content-box:hover {
+            transform: translateY(-5px);
+        }
 
-/* Enhanced Card Styles */
-.card-shadow {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
+        .image-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 2px solid var(--gold);
+            opacity: 0;
+            transition: all 0.3s ease;
+            transform: scale(0.9);
+        }
+
+        .image-wrapper:hover::after {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .image-wrapper img {
+            transition: transform 0.3s ease;
+        }
+
+        .image-wrapper:hover img {
+            transform: scale(1.05);
+        }
+
+        .diagonal-pattern {
+            background-image: linear-gradient(45deg, var(--peach-light) 25%, transparent 25%),
+                            linear-gradient(-45deg, var(--peach-light) 25%, transparent 25%);
+            background-size: 8px 8px;
+            opacity: 0.1;
+        }
